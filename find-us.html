@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Find Us – Freya's Farmstand</title>
+<title>Find Us – Mzee's Farmstand</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Freya's <span>Farmstand</span></div>
+  <div class="nav-logo">Mzee's <span>Farmstand</span></div>
   <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
   <ul id="nav-links">
     <li><a href="index.html">Today's Produce</a></li>
@@ -35,7 +35,7 @@
     </div>
     <div class="info-card">
       <h3>🌿 About Our Farm</h3>
-      <p>Freya's Farmstand is a small family-run farmgate operation. Everything we sell is grown right here on our land — no middlemen, no supermarkets, just fresh produce straight from the earth to you.</p>
+      <p>Mzee's Farmstand is a small family-run farmgate operation. Everything we sell is grown right here on our land — no middlemen, no supermarkets, just fresh produce straight from the earth to you.</p>
       <br>
       <p>We believe in honest, sustainable growing practices and sharing the bounty of the season with our community.</p>
       <br>
@@ -54,7 +54,7 @@
 </div>
 
 <footer>
-  <div class="foot-logo">Freya's Farmstand</div>
+  <div class="foot-logo">Mzee's Farmstand</div>
   <div class="rune-row">✦ ᚠ ✦ ᛜ ✦</div>
   <p>Grown with magic · Sold with love</p>
   <p style="margin-top:0.5rem;opacity:0.6;font-size:0.8rem;"><a href="admin/index.html">Admin</a></p>
@@ -90,7 +90,7 @@ function printQR() {
   const img = canvas.toDataURL('image/png');
   const win = window.open('', '_blank');
   win.document.write(`
-    <html><head><title>Freya's Farmstand QR Code</title>
+    <html><head><title>Mzee's Farmstand QR Code</title>
     <style>
       body { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; font-family:Georgia,serif; padding:2rem; }
       img { border: 3px solid #27500A; border-radius:12px; padding:1rem; }
@@ -99,7 +99,7 @@ function printQR() {
       small { color:#888; margin-top:1rem; font-size:0.8rem; }
     </style></head>
     <body>
-      <h2>Freya's Farmstand</h2>
+      <h2>Mzee's Farmstand</h2>
       <p>Scan to see today's fresh produce!</p>
       <img src="${img}" width="250" height="250"/>
       <small>${url}</small>

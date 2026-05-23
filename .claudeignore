@@ -1,0 +1,32 @@
+# Environment & Secrets
+.env
+.env.*
+*.env
+config/secrets.php
+config/database.php
+secrets/
+credentials/
+
+# PHP sensitive config files
+wp-config.php
+configuration.php
+config.php
+settings.php
+
+# Dependency folders (large, not needed for context)
+vendor/
+node_modules/
+
+# Git internals
+.git/
+
+# Logs & caches
+*.log
+logs/
+cache/
+tmp/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
