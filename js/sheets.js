@@ -17,7 +17,6 @@ const SHEETS = {
     let current = '';
     let inQuotes = false;
 
-    // Walk character by character to handle quoted newlines
     for (let i = 0; i < text.length; i++) {
       const ch = text[i];
       if (ch === '"') {
@@ -70,6 +69,25 @@ const SHEETS = {
     if (!res.ok) throw new Error('Could not load recipes');
     const text = await res.text();
     return this.parseCSV(text);
+  },
+
+  // Fetch settings from "Settings" tab
+  // Sheet should have two columns: "key" and "value"
+  // e.g. | hours | Monday - Saturday, 8am - 5pm |
+  async fetchSettings() {
+    try {
+      const res = await fetch(this.csvUrl('Settings'));
+      if (!res.ok) return {};
+      const text = await res.text();
+      const rows = this.parseCSV(text);
+      const settings = {};
+      rows.forEach(row => {
+        if (row.key) settings[row.key.toLowerCase().trim()] = row.value || '';
+      });
+      return settings;
+    } catch(e) {
+      return {};
+    }
   },
 
 };

@@ -63,14 +63,28 @@
 <!-- QR Code library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="js/config.js"></script>
+<script src="js/sheets.js"></script>
 <script>
 function toggleNav() { document.getElementById('nav-links').classList.toggle('open'); }
 
+// Set address from config
 document.getElementById('farm-address').textContent = CONFIG.FARM_ADDRESS;
-document.getElementById('farm-hours').textContent = CONFIG.FARM_HOURS;
+
+// Load hours from spreadsheet, fall back to config if unavailable
+async function loadHours() {
+  const hoursEl = document.getElementById('farm-hours');
+  hoursEl.textContent = CONFIG.FARM_HOURS; // show fallback immediately
+  try {
+    const settings = await SHEETS.fetchSettings();
+    if (settings.hours) hoursEl.textContent = settings.hours;
+  } catch(e) {
+    // fallback already shown
+  }
+}
+loadHours();
 
 // Generate QR code pointing to the site URL
-const url = CONFIG.SITE_URL && !CONFIG.SITE_URL.includes('YOUR-USERNAME')
+const url = CONFIG.SITE_URL && !CONFIG.SITE_URL.includes('YOUR-NEW-USERNAME')
   ? CONFIG.SITE_URL
   : window.location.origin + window.location.pathname.replace('find-us.html', '');
 
